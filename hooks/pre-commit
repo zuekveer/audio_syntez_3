@@ -1,0 +1,27 @@
+#!/bin/sh
+#exit on error
+set -e
+
+# Run PHP-CS-Fixer
+echo "Running PHP-CS-Fixer..."
+./vendor/bin/php-cs-fixer fix --diff --dry-run -vvv
+if [ $? -ne 0 ]; then
+    echo "PHP-CS-Fixer failed. Fix the errors and try again."
+    exit 1
+fi
+
+# Run PHPStan
+echo "Running PHPStan..."
+./vendor/bin/phpstan analyse --no-progress
+if [ $? -ne 0 ]; then
+    echo "PHPStan failed. Fix the errors and try again."
+    exit 1
+fi
+
+# Run tests
+echo "Running tests..."
+./vendor/bin/phpunit tests
+if [ $? -ne 0 ]; then
+    echo "Tests failed. Fix the errors and try again."
+    exit 1
+fi

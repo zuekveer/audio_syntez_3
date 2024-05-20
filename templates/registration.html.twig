@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{ asset('css/newHelvetica.css') }}">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<div class="form-container">
+    <h2 class="mb-4">Registration Form</h2>
+    <form id="registrationForm" action="/api/registration" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" minlength="10" required>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="showPassword">
+            <label class="form-check-label" for="showPassword">Show Password</label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{%  block javascripts %}
+    <script src="{{ asset('js/registration.js') }}"></script>
+{%  endblock %}
+</body>
+</html>

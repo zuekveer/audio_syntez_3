@@ -1,0 +1,7 @@
+{
+  "js/login.js": "/js/login.js",
+  "js/registration.js": "/js/registration.js",
+  "js/resetPassword.js": "/js/resetPassword.js",
+  "js/setNewPassword.js": "/js/setNewPassword.js",
+  "js/verifyCode.js": "/js/verifyCode.js"
+}

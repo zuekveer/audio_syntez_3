@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set new password</title>
+    <link rel="stylesheet" href="{{ asset('css/newHelvetica.css') }}"></head>
+<body>
+<div class="form-container">
+    <h2>Verify registration</h2>
+    <form id="verifyCodeForm" action="/api/verify-code" method="post">
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="token">Token:</label><br>
+        <input type="tel" id="token" name="token" pattern="[0-9]{6}" placeholder="123456" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{%  block javascripts %}
+    <script src="{{ asset('js/verifyCode.js') }}"></script>
+{%  endblock %}
+</body>
+</html>
