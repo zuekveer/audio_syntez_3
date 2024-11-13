@@ -37,3 +37,12 @@ logs_db:
 
 logs_php:
 	@docker compose logs php
+
+phpunit:
+	@docker compose exec php php vendor/bin/phpunit
+
+composer_install:
+	@docker compose exec php composer install
+
+composer_update:
+	@docker compose exec php composer update
