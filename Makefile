@@ -1,17 +1,17 @@
 #loading Fixtures
-make fixtures load:
+fixtures load:
 	@php bin/console doctrine:fixtures:load
 
 #create DB
-make database create:
+database create:
 	@php bin/console doctrine:database:create
 
 #to migrate Users Entity to users DB
-make migration:
+migration:
 	@php bin/console make:migration
 
 #to launch your migration file users
-make migrate:
+migrate:
 	@php bin/console doctrine:migrations:migrate
 
 build:
