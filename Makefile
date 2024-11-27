@@ -8,11 +8,11 @@ database create:
 
 #to migrate Users Entity to users DB
 migration:
-	@php bin/console make:migration
+	@docker compose run --rm php bash php bin/console make:migration
 
 #to launch your migration file users
 migrate:
-	@php bin/console doctrine:migrations:migrate
+	@@docker compose run --rm php bin/console doctrine:migrations:migrate
 
 build:
 	@docker compose up --build
@@ -33,7 +33,7 @@ php:
 	@docker compose exec php bash
 
 logs_db:
-	@docker compose logs db
+	@docker compose logs postgres_db
 
 logs_php:
 	@docker compose logs php
