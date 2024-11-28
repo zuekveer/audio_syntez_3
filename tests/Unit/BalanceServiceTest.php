@@ -9,7 +9,7 @@ use App\Entity\Wallet;
 use App\Exception\AccessDeniedException;
 use App\Exception\NotEnoughMoneyException;
 use App\Exception\NotFoundException;
-use App\Services\BalanceService;
+use App\Services\Balance\BalanceService;
 use App\Tests\Provider\Provider;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;

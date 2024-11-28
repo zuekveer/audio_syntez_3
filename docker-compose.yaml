@@ -18,6 +18,8 @@ services:
       context: .
     volumes:
       - .:/app
+    networks:
+      - zkr-network
     depends_on:
       - postgres_db
 
@@ -27,5 +29,11 @@ services:
       - '81:80'
     volumes:
       - ./docker/nginx/nginx.conf/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - zkr-network
     depends_on:
       - php
+
+networks:
+  zkr-network:
+    driver: bridge

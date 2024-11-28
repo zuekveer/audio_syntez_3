@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\API;
 
 use App\DTO\Request\ChangeBalanceDTO;
-use App\Services\BalanceService;
+use App\Services\Balance\BalanceService;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use OpenApi\Attributes as OA;
