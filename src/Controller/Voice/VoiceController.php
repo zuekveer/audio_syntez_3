@@ -22,7 +22,7 @@ class VoiceController extends AbstractController
     {
         $voices = $this->voiceService->getAllVoices();
         $response = array_map(fn($voice) => [
-            'id' => $voice->getGuid(),
+            'id' => $voice->getId(),
             'name' => $voice->getName(),
             'pricePerCharacter' => $voice->getPricePerCharacter(),
             'parameters' => $voice->getParameters(),
@@ -44,7 +44,7 @@ class VoiceController extends AbstractController
         );
 
         return new JsonResponse([
-            'id' => $voice->getGuid(),
+            'id' => $voice->getId(),
             'name' => $voice->getName(),
             'pricePerCharacter' => $voice->getPricePerCharacter(),
             'parameters' => $voice->getParameters(),
