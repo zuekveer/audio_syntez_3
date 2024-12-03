@@ -6,6 +6,10 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\CustomIdGenerator;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity]
@@ -14,10 +18,10 @@ use Symfony\Component\Uid\Uuid;
 class Voice
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[GeneratedValue(strategy: 'CUSTOM')]
     #[CustomIdGenerator(class: UuidGenerator::class)]
-    #[ORM\Column(type: Types::GUID, unique: true)]
-    private string $guid;
+    #[Column(type: Types::GUID, unique: true, nullable: false)]
+    private string $id;
 
     #[ORM\Column(type: Types::STRING, length: 50)]
     private string $name;
@@ -28,14 +32,19 @@ class Voice
     #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $parameters = null;
 
-    public function getGuid(): string
+    #[Column(type: 'datetime')]
+    private ?\DateTime $createdAt = null;
+    #[Column(type: 'datetime', nullable: false)]
+    private \DateTime $updatedAt;
+
+    public function getId(): string
     {
-        return $this->guid;
+        return $this->id;
     }
 
-    public function setGuid(string $guid): self
+    public function setId(string $id): self
     {
-        $this->guid = $guid;
+        $this->id = $id;
 
         return $this;
     }
